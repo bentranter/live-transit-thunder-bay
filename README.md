@@ -1,6 +1,6 @@
 # Live Transit Thunder Bay
 
-Live Transit acts as a JSON proxy for realtime GTFS data feeds. Live Transit will accept the incoming .pb file, and spit it back out as JSON.
+Live Transit acts as a JSON proxy for the Thunder Bay realtime GTFS data feeds (all the city bus info, basically). Live Transit accepts the incoming .pb file, and spit it back out as JSON. This means that whenever you send a request to one of the Live Transit endpoints, you're sure to get the latest data. CORS is also enabled for all endpoints. More info Thunder Bay Transit Open Data can be read [here](http://www.thunderbay.ca/Living/Getting_Around/Thunder_Bay_Transit/Developers_-_Open_Data.htm).
 
 ### Usage
 
