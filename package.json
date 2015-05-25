@@ -13,6 +13,7 @@
   "author": "Ben Tranter <bwtrante@lakeheadu.ca>",
   "license": "MIT",
   "dependencies": {
+    "express": "^4.12.4",
     "gtfs-realtime-bindings": "0.0.4",
     "request": "^2.55.0"
   }

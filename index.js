@@ -1,23 +1,33 @@
 'use strict';
 
 // Module dependencies
-var request = require('request');
-var gtfs    = require('gtfs-realtime-bindings');
+var express = require('express');
+var http    = require('http');
+var api     = require('./api');
 
-// Configure request
-var requestSettings = {
-  method: 'GET',
-  url: 'http://api.nextlift.ca/gtfs-realtime/tripupdates.pb',
-  encoding: null
-};
+var app = express();
 
-request(requestSettings, function (error, response, body) {
-  if (!error && response.statusCode === 200) {
-    var feed = gtfs.FeedMessage.decode(body);
-    feed.entity.forEach(function(entity) {
-      if (entity.trip_update) {
-        console.log(entity.trip_update);
-      }
-    });
-  }
+// Configure Express
+app.set('port', process.env.PORT || 3000);
+app.set('json spaces', 2);
+
+// Enable CORS
+app.use(function(req, res, next) {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  next();
 });
+
+// API Endpoints
+app.get('/', api.showEndpoints);
+app.get('/vehicleupdates', api.getVehicleUpdates);
+app.get('/tripupdates', api.getTripUpdates);
+app.get('/alerts', api.getAlerts);
+
+
+// Serve
+http.createServer(app)
+  .listen(app.get('port'), function () {
+    console.log('Express started on port 3000');
+  });
