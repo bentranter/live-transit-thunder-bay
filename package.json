@@ -1,0 +1,19 @@
+{
+  "name": "live-transit",
+  "version": "0.0.1",
+  "description": "JSON proxy for realtime GTFS feeds",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo 'No tests'",
+    "start": "node index.js"
+  },
+  "keywords": [
+    "gtfs"
+  ],
+  "author": "Ben Tranter <bwtrante@lakeheadu.ca>",
+  "license": "MIT",
+  "dependencies": {
+    "gtfs-realtime-bindings": "0.0.4",
+    "request": "^2.55.0"
+  }
+}
