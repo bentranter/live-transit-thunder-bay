@@ -14,7 +14,9 @@ var gtfs    = require('gtfs-realtime-bindings');
 
 exports.showEndpoints = function(req, res) {
   res.json({
-    'trip_update_url': '/tripupdates'
+    'vehicle_updates_url': '/vehicleupdates',
+    'trip_updates_url': '/tripupdates',
+    'alerts_url': '/alerts'
   });
 };
 
