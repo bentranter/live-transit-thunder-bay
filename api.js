@@ -20,45 +20,12 @@ exports.showEndpoints = function(req, res) {
   });
 };
 
-// Configure request settings
-var vehicleUpdateRequestSettings = {
-  method: 'GET',
-  url: 'http://api.nextlift.ca/gtfs-realtime/vehicleupdates.pb',
-  encoding: null
-};
-
-exports.getVehicleUpdates = function(req, res) {
-  request(vehicleUpdateRequestSettings, function (error, response, body) {
-    if (!error && response.statusCode === 200) {
-      var feed = gtfs.FeedMessage.decode(body);
-      res.json(feed.entity);
-    }
-  });
-}
-
-var tripUpdateRequestSettings = {
-  method: 'GET',
-  url: 'http://api.nextlift.ca/gtfs-realtime/tripupdates.pb',
-  encoding: null
-};
-
-exports.getTripUpdates = function(req, res) {
-  request(tripUpdateRequestSettings, function (error, response, body) {
-    if (!error && response.statusCode === 200) {
-      var feed = gtfs.FeedMessage.decode(body);
-      res.json(feed.entity);
-    }
-  });
-}
-
-var alertRequestSettings = {
-  method: 'GET',
-  url: 'http://api.nextlift.ca/gtfs-realtime/alerts.pb',
-  encoding: null
-};
-
-exports.getAlerts = function(req, res) {
-  request(alertRequestSettings, function (error, response, body) {
+exports.getUpdates = function(req, res) {
+  request({
+    method: 'GET',
+    url: 'http://api.nextlift.ca/gtfs-realtime/' + encodeURIComponent(req.params.feedName) + '.pb',
+    encoding: null
+  }, function(error, response, body) {
     if (!error && response.statusCode === 200) {
       var feed = gtfs.FeedMessage.decode(body);
       res.json(feed.entity);

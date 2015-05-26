@@ -21,9 +21,7 @@ app.use(function(req, res, next) {
 
 // API Endpoints
 app.get('/', api.showEndpoints);
-app.get('/vehicleupdates', api.getVehicleUpdates);
-app.get('/tripupdates', api.getTripUpdates);
-app.get('/alerts', api.getAlerts);
+app.get('/:feedName', api.getUpdates);
 
 
 // Serve
