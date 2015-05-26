@@ -25,7 +25,9 @@ app.get('/:feedName', api.getUpdates);
 
 
 // Serve
-http.createServer(app)
+exports.start = function() {
+  http.createServer(app)
   .listen(app.get('port'), function () {
     console.log('Express started on port 3000');
   });
+};

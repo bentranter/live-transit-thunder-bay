@@ -1,17 +1,26 @@
 {
-  "name": "live-transit",
-  "version": "0.0.1",
+  "name": "live-transit-thunder-bay",
+  "version": "0.1.0",
   "description": "JSON proxy for realtime GTFS feeds",
-  "main": "index.js",
+  "main": "live-transit-thunder-bay",
   "scripts": {
     "test": "echo 'No tests'",
-    "start": "node index.js"
+    "start": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bentranter/live-transit-thunder-bay.git"
   },
   "keywords": [
-    "gtfs"
+    "gtfs",
+    "thunder-bay"
   ],
   "author": "Ben Tranter <bwtrante@lakeheadu.ca>",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bentranter/live-transit-thunder-bay/issues"
+  },
+  "homepage": "https://github.com/bentranter/live-transit-thunder-bay",
   "dependencies": {
     "express": "^4.12.4",
     "gtfs-realtime-bindings": "0.0.4",
