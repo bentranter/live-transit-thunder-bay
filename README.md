@@ -5,10 +5,15 @@ Live Transit acts as a JSON proxy for the Thunder Bay realtime GTFS data feeds (
 ### Usage
 
 1. Download Node.js
-2. Clone this repo
-3. Run `npm install && npm start`
+2. Run `npm install live-transit-thunder-bay --save`
+3. Use the API:
 
-Express should start, and the API should be available on port 3000.
+```js
+var liveTransit = require('live-transit-thunder-bay');
+liveTransit.start();
+```
+
+Run `node index.js`. Express should start, and the API should be available on port 3000.
 
 ### Endpoints
 
